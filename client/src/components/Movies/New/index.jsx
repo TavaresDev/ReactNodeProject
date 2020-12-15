@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 import Header from '../../shared/Header';
-import UserForm from '../UserForm';
+import MovieForm from '../MovieForm';
 
 const New = () => {
   return (
@@ -22,7 +22,7 @@ const New = () => {
           The content is editable under <strong>/src/components/Users/New/index.jsx</strong>
         </p>
 
-        <UserForm endpoint="users"/>
+        <MovieForm endpoint="movies"/>
       </Container>
     </>
   );
