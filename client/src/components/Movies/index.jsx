@@ -46,7 +46,7 @@ const Movies = () => {
 
             <tbody>
               {movies.map(({title, year}, i) => (
-                <tr>
+                <tr key={i}>
                   <td>{title}</td>
                   <td>{year}</td>
                 </tr>
