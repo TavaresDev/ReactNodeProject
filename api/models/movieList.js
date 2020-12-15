@@ -13,6 +13,10 @@ const MovieListSchema = new mongoose.Schema({
     type:mongoose.SchemaTypes.ObjectId,
     ref:'Movie',
     required:true
+  },
+  name: {
+    type:String,
+    required:false
   }
 }, {
   timestamps: true

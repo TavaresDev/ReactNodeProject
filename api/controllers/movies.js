@@ -65,7 +65,7 @@ exports.update = async (req, res, next) => {
 exports.destroy = async (req, res, next) => {
   try {
     const { _id } = req.body;
-    const user = await Movie.findOneAndDelete({ _id });
+    const movie = await Movie.findOneAndDelete({ _id });
     res.status(200).json({message: 'Movie was deleted successfully', status: 'success'});
   } catch (error) {
     console.error(error);
