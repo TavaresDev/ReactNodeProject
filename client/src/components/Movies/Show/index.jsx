@@ -11,10 +11,12 @@ const Show = () => {
   // const { movie } = useContext("5fd819f34e26707b3879bee7");
   const { globalStore } = useContext(GlobalStoreContext);
   const [movieDetails, setMovieDetails] = useState(null);
+  //figure out hoe co cerrectly recive the movie ID
+  const [movieID, setMovieID] = useState("5fd819f34e26707b3879bee7");
 
   //need to get the movie UID to fetch from DB instead of user token
   useEffect(() => {
-    Axios.get(`${globalStore.REACT_APP_ENDPOINT}/movies/show?${'5fd819f34e26707b3879bee7'}`)
+    Axios.get(`${globalStore.REACT_APP_ENDPOINT}/movies/${movieID}`)
     .then(({ data }) => {
       setMovieDetails(data);
     });

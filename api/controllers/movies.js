@@ -13,8 +13,8 @@ exports.index = async (req, res, next) => {
 
 exports.show = async (req, res, next) => {
   try {
-    const { _id } = req.movie;
-    let movie = await Movie.findOne({ _id });
+    const { id } = req.header;
+    let movie = await Movie.findOne({ id });
     res.status(200).json(movie);
   } catch (error) {
     console.error(error);
