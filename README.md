@@ -1,5 +1,17 @@
-# Project Starter files
+# Andre Tavares Project 
 
+## instructions
+
+Create account, add movies, 
+
+//todo
+finish movie list
+create movie list client
+implement API call to populate movie data
+
+
+login : qwe@qwe.com
+pass: 123qwe
 ## Includes:
 
 - API

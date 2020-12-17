@@ -24,11 +24,12 @@ const Navigation = () => {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand>MOFO Gaming</Navbar.Brand>
+      <Navbar.Brand>Movie App</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Link to="/" component={NavLink}>Home</Link>
+          <Link to="/movies" component={NavLink}>Movies</Link>
 
           {user && user.token ? (
             <>
@@ -36,6 +37,8 @@ const Navigation = () => {
               <Link to="/profile" component={NavLink}>Profile</Link>
               <Link to="/profile/edit" component={NavLink}>Edit Profile</Link>
               <Link to="/logout" component={NavLink}>Logout</Link>
+              {/* //movies */}
+              <Link to="/new" component={NavLink}>Add Movie</Link>
             </>
           ) : (
             <>

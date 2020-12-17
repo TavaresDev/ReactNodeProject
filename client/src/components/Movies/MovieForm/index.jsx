@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import Axios from 'axios';
 import { UserContext } from '../../Authentication/UserProvider';
@@ -9,15 +9,18 @@ import { Redirect } from 'react-router-dom';
 
 const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
   const { globalStore } = useContext(GlobalStoreContext);    
-  // const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const { setNotification } = useContext(NotificationContext);
-
-  const [inputs, setInputs] = useState({
-    ...preloadData,
-    // emailConfirmation: (preloadData && preloadData.email)
-  });
-  const [redirect, setRedirect] = useState(false);
+  const [ movie, setMovie ] = useState();
   
+  const [inputs, setInputs] = useState({});
+
+  const [redirect, setRedirect] = useState(false);
+
+    useEffect(() => {
+    setInputs({...preloadData});
+  }, [preloadData])
+
   const handleChange = event => {
     event.persist();
     setInputs({
@@ -26,6 +29,7 @@ const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
     });
   };
 
+  console.log(inputs);
   const handleSubmit = async event => {
     event.preventDefault();
 
@@ -33,7 +37,7 @@ const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
 
       Axios.post(`${globalStore.REACT_APP_ENDPOINT}/${endpoint}`, {
         ...inputs,
-        // secret_token: (user && user.token)
+        secret_token: (user && user.token)
       })
       .then(({ data }) => {
         // if (data && data.token) setUser(data);

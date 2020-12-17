@@ -4,6 +4,7 @@ import { GlobalStoreContext } from '../shared/Globals';
 import { NotificationContext } from '../shared/Notifications';
 import { Container, Table } from 'react-bootstrap';
 import Header from '../shared/Header';
+import { Link } from 'react-router-dom';
 
 const Movies = () => {
   const { globalStore } = useContext(GlobalStoreContext);
@@ -41,14 +42,20 @@ const Movies = () => {
               <tr>
                 <td>Movie</td>
                 <td>Year</td>
+                <td>ID</td>
               </tr>
             </thead>
 
             <tbody>
-              {movies.map(({title, year}, i) => (
+              {movies.map(({title, year, _id}, i) => (
                 <tr key={i}>
-                  <td>{title}</td>
+                  
+                  <td>   <Link to={`/movies/${_id}`} >{title} </Link></td>
                   <td>{year}</td>
+                  <td>{_id}</td>
+               
+                  
+
                 </tr>
               ))}
             </tbody>

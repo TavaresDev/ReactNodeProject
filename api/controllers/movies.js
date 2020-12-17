@@ -13,8 +13,8 @@ exports.index = async (req, res, next) => {
 
 exports.show = async (req, res, next) => {
   try {
-    const { id } = req.header;
-    let movie = await Movie.findOne({ id });
+    // const _id  = req.params.movie;
+    let movie = await Movie.findById(req.params.id);
     res.status(200).json(movie);
   } catch (error) {
     console.error(error);
@@ -49,6 +49,7 @@ exports.create = async (req, res, next) => {
 exports.update = async (req, res, next) => {
     try {
       const { _id, title, year, imdbID, poster, rating } = req.body;
+      console.log(req.body);
       const movie = await Movie.findOneAndUpdate({ _id }, {
         title,
         year,
