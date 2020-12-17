@@ -56,7 +56,6 @@ const Show = (props) => {
               <p>
                 <strong>Title:</strong>&nbsp;{movieDetails.title}
               </p>
-
               <p>
                 <strong>Year:</strong>&nbsp;{movieDetails.year}
               </p>

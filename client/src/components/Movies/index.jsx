@@ -42,16 +42,18 @@ const Movies = () => {
               <tr>
                 <td>Movie</td>
                 <td>Year</td>
+                <td>Imdb</td>
                 <td>ID</td>
               </tr>
             </thead>
 
             <tbody>
-              {movies.map(({title, year, _id}, i) => (
+              {movies.map(({title, year, _id, imdb}, i) => (
                 <tr key={i}>
                   
                   <td>   <Link to={`/movies/${_id}`} >{title} </Link></td>
                   <td>{year}</td>
+                  <td>{imdb}</td>
                   <td>{_id}</td>
                
                   

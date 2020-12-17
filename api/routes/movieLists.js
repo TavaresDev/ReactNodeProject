@@ -13,8 +13,6 @@ module.exports = router => {
     //POST loocalhost:4000/movieLists/destroy
     router.post('/movieLists/destroy', destroy);
 
-    router.get('/movieLists/search', search);
-
     router.get('/movieLists/:id', show);
 
 
