@@ -13,10 +13,8 @@ const Show = (props) => {
   // const id ="5fd8428c5e70dd3bd4f4774f"
   const { globalStore } = useContext(GlobalStoreContext);
   const [movieDetails, setMovieDetails] = useState(null);
-  //figure out hoe co cerrectly recive the movie ID
-  // const [movieID, setMovieID] = useState("5fd819f34e26707b3879bee7");
 
-  //need to get the movie UID to fetch from DB instead of user token
+
   useEffect(() => {
     console.log(id)
     Axios.get(`${globalStore.REACT_APP_ENDPOINT}/movies/${id}`)
@@ -30,13 +28,7 @@ const Show = (props) => {
     movieDetails ? (
       <>
         <Header title="Your title for the Header component block">
-          <p>
-            This paragraph will be the value for <strong>&#123;children&#125;</strong> in the <strong>Header component</strong>.
-          </p>
 
-          <p>
-            The header is editable under <strong>/src/components/Users/Show/index.jsx</strong>
-          </p>
         </Header>
 
         <Container>

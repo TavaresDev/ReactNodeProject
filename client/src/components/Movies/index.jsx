@@ -26,14 +26,8 @@ const Movies = () => {
   return (
     movies ? (
       <>
-        <Header title="Your title for the Header component block">
-          <p>
-            This paragraph will be the value for <strong>&#123;children&#125;</strong> in the <strong>Header component</strong>.
-          </p>
+        <Header title="Movie List">
 
-          <p>
-            The header is editable under <strong>/src/components/Users/index.jsx</strong>
-          </p>
         </Header>
 
         <Container className="my-3">

@@ -64,9 +64,6 @@ const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
       <Redirect to="/Movies"/>
     ) : (
       <Form onSubmit={handleSubmit}>
-        <p>
-          The content is editable under <strong>/src/components/Users/UserForm/index.jsx</strong>
-        </p>
 
         <Form.Group>
           <Form.Label>Title</Form.Label>
