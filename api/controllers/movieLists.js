@@ -2,9 +2,8 @@ const MovieList = require('../models/movieList');
 // const jwt = require('jsonwebtoken');
 
 exports.index = async (req, res, next) => {
-    //to do chack bussines logic
   try {
-    const lists = await MovieList.find({user: req.user._id});
+    const lists = await MovieList.find();
     res.status(200).json(lists);
   } catch (error) {
     console.error(error);
@@ -15,7 +14,7 @@ exports.index = async (req, res, next) => {
 exports.show = async (req, res, next) => {
   try {
     const { _id } = req.movieList;
-    let movieList = await Movie.findOne({ _id });
+    let movieList = await MovieList.findOne({ _id });
     res.status(200).json(movieList);
   } catch (error) {
     console.error(error);
@@ -31,7 +30,7 @@ exports.create = async (req, res, next) => {
       movie,
       name
     } = req.body;
-    const movieList = await Movie.create({
+    const movieList = await MovieList.create({
         user,
         movie,
         name
@@ -60,8 +59,8 @@ exports.update = async (req, res, next) => {
 exports.destroy = async (req, res, next) => {
   try {
     const { _id } = req.body;
-    const movieList = await Movie.findOneAndDelete({ _id });
-    res.status(200).json({message: 'Movie List was deleted successfully', status: 'success'});
+    const movieList = await MovieList.findOneAndDelete({ _id });
+    res.status(200).json({message: 'List List was deleted successfully', status: 'success'});
   } catch (error) {
     console.error(error);
     next(error);

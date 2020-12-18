@@ -10,8 +10,10 @@ const MovieListSchema = new mongoose.Schema({
     required: true
   },
   movie: {
-    type:mongoose.SchemaTypes.ObjectId,
-    ref:'Movie',
+    type: Array,
+    //can I make arrayu of objects?
+    // type:mongoose.SchemaTypes.ObjectId,
+    // ref:'Movie',
     required:true
   },
   name: {
