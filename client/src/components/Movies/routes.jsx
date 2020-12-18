@@ -6,6 +6,7 @@ import Index from './index';
 import Show from './Show';
 import New from './New';
 import Edit from './Edit';
+import addFromApi from './AddFromAPI';
 
 const Routes = () => {
   const { user } = useContext(UserContext);
@@ -19,6 +20,7 @@ const Routes = () => {
           <Route exact path="/movies" component={Index}/>
           <Route exact path="/movies/:movieID" component={Show}/>
           <Route exact path="/movies/edit/:id" component={Edit}/>
+          <Route exact path="/movies/add/" component={addFromApi}/>
         </>
       ) : null}
     </Switch>

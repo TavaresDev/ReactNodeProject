@@ -13,8 +13,6 @@ const New = () => {
       </Header>
       
       <Container>
-
-
         <MovieForm endpoint="movies"/>
       </Container>
     </>

@@ -21,12 +21,12 @@ const DataFetching = () => {
             })
     },[movieInputFromClick])
     
-    const handleClick = () => {
-        setMovieInputFromClick(movieInput)
-        movies.map((movie, i) => {
-          console.log(movie)
-        })
-    }
+    // const handleClick = () => {
+    //     setMovieInputFromClick(movieInput)
+    //     movies.map((movie, i) => {
+    //       console.log(movie)
+    //     })
+    // }
 
     return (
         movies ? (
@@ -40,33 +40,33 @@ const DataFetching = () => {
             <div>
                 {
                     movies.map((movie, i) => (
-                        <Media>
+                        <Media key = {i}>
 
                             <img
-                            src={movie.Poster ? movie.Poster :"https://via.placeholder.com/150"}
-                            width={300}
-                            height={300}
-                            className="mr-3"
+                                src={movie.Poster ? movie.Poster :"https://via.placeholder.com/150"}
+                                width={300}
+                                height={300}
+                                className="mr-3"
                             />
                             <Media.Body>
-                            <h5>{movie.title}</h5>
-                            <p>
-                                <strong>Title:</strong>&nbsp;{movie.Title}
-                            </p>
-                            <p>
-                                <strong>Year:</strong>&nbsp;{movie.Year}
-                            </p>
-                            <p>
-                                <strong>Director:</strong>&nbsp;{movie.Director}
-                            </p>
-        
-                            <p>
-                                <strong>IMDB ID:</strong>&nbsp;{movie.imdbID}
-                            </p>
+                                <h5>{movie.title}</h5>
+                                <p>
+                                    <strong>Title:</strong>&nbsp;{movie.Title}
+                                </p>
+                                <p>
+                                    <strong>Year:</strong>&nbsp;{movie.Year}
+                                </p>
+                                <p>
+                                    <strong>Director:</strong>&nbsp;{movie.Director}
+                                </p>
+            
+                                <p>
+                                    <strong>IMDB ID:</strong>&nbsp;{movie.imdbID}
+                                </p>
 
-                            <p>
-                                {/* <Link to={`/new/${id}`} > Add movie...</Link> */}
-                            </p>
+                                <p>
+                                    {/* <Link to={`/new/${id}`} > Add movie...</Link> */}
+                                </p>
                             </Media.Body>
                         </Media>
                     ))

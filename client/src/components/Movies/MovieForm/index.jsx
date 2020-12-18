@@ -17,8 +17,8 @@ const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
 
   const [redirect, setRedirect] = useState(false);
 
-    useEffect(() => {
-    setInputs({...preloadData});
+  useEffect(() => {
+  setInputs({...preloadData});
   }, [preloadData])
 
   const handleChange = event => {
