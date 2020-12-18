@@ -1,21 +1,23 @@
 import React from 'react'
 
-const addFromApi = () => {
+const addFromApi = (props) => {
+    
     const [inputs, setInputs] = useState({});
+    const [preload, setPreload] = useState({});
 
     const [redirect, setRedirect] = useState(false);
   
-    useEffect(() => {
-    setInputs({...preloadData});
-    }, [preloadData])
+    // useEffect(() => {
+    // setInputs({...preloadData});
+    // }, [preloadData])
   
-    const handleChange = event => {
-      event.persist();
-      setInputs({
-        ...inputs,
-        [event.target.name]: event.target.value
-      });
-    };
+    // const handleChange = event => {
+    //   event.persist();
+    //   setInputs({
+    //     ...inputs,
+    //     [event.target.name]: event.target.value
+    //   });
+    // };
   
     console.log(inputs);
     const handleSubmit = async event => {
