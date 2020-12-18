@@ -21,12 +21,12 @@ const DataFetching = () => {
             })
     },[movieInputFromClick])
     
-    // const handleClick = () => {
-    //     setMovieInputFromClick(movieInput)
-    //     movies.map((movie, i) => {
-    //       console.log(movie)
-    //     })
-    // }
+    const handleClick = () => {
+        setMovieInputFromClick(movieInput)
+        movies.map((movie, i) => {
+          console.log(movie)
+        })
+    }
 
     return (
         movies ? (
