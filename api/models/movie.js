@@ -47,6 +47,10 @@ const MovieSchema = new mongoose.Schema({
   type: {
     type: String,
     required: false
+  },
+  isFeature: {
+    type: Boolean,
+    required: false
   }
 }, {
   timestamps: true
