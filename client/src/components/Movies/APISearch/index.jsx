@@ -7,25 +7,43 @@ import { Link } from 'react-router-dom';
 
 const DataFetching = () => {
     const [movies, setMovies] = useState([])
-    const [movieInput, setMovieInput] = useState(1)
-    const [movieInputFromClick, setMovieInputFromClick] = useState()
+    const [movieInput, setMovieInput] = useState('')
+    const [movieInputFromClick, setMovieInputFromClick] = useState('ass')
 
     useEffect(() => {
         Axios.get(`https://www.omdbapi.com/?s=${movieInputFromClick}&type=movie&page=1&apikey=8a2a252`)
-            .then(res => {
-                setMovies(res.data.Search)
-                console.log(res.data.Search)
+        .then(res => {
+                console.log(res)
+                console.log(res.data)
+
+                if(res.data.Response === "True"){
+                    setMovies(res.data.Search)
+                }else if (res.data.Error == "Too many results."){
+                    throw new Error('Too many results.')
+                }else if(res.data.Error == "Movie not found!"){
+                    throw new Error('Movie not found!')
+                    // UI.showAlert("Sorry, Movie not found", "danger");
+
+                }
             })
-            .catch(err => {
-                console.log(err)
+            .catch((err) => {
+                if(err.response){
+                    console.log("respo")
+                }else if(err.request){
+                    console.log("request")
+                }else{
+                    console.log(err)
+
+                }
             })
     },[movieInputFromClick])
     
+    
     const handleClick = () => {
         setMovieInputFromClick(movieInput)
-        movies.map((movie, i) => {
-          console.log(movie)
-        })
+        // movies.map((movie, i) => {
+        //   console.log(movie)
+        // })
     }
 
     return (
@@ -40,10 +58,12 @@ const DataFetching = () => {
             <div>
                 {
                     movies.map((movie, i) => (
+                        //meke it a component. how to pass data?
                         <Media key = {i}>
 
                             <img
-                                src={movie.Poster ? movie.Poster :"https://via.placeholder.com/150"}
+                                src={movie.Poster != 'N/A' ? movie.Poster :"https://via.placeholder.com/150"}
+                                alt={movie.Title}
                                 width={300}
                                 height={300}
                                 className="mr-3"
