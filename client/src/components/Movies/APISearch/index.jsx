@@ -1,6 +1,8 @@
 import Axios from 'axios'
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import Header from '../../shared/Header'
+import { NotificationContext } from '../../shared/Notifications';
+
 import { Container, Media } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -9,6 +11,7 @@ const DataFetching = () => {
     const [movies, setMovies] = useState([])
     const [movieInput, setMovieInput] = useState('')
     const [movieInputFromClick, setMovieInputFromClick] = useState('ass')
+    const { setNotification } = useContext(NotificationContext);
 
     useEffect(() => {
         Axios.get(`https://www.omdbapi.com/?s=${movieInputFromClick}&type=movie&page=1&apikey=8a2a252`)
@@ -19,9 +22,17 @@ const DataFetching = () => {
                 if(res.data.Response === "True"){
                     setMovies(res.data.Search)
                 }else if (res.data.Error == "Too many results."){
-                    throw new Error('Too many results.')
+                    setNotification({
+                        type: "danger",
+                        message: "Too many results"
+                      });
+                    // throw new Error('Too many results.')
                 }else if(res.data.Error == "Movie not found!"){
-                    throw new Error('Movie not found!')
+                    setNotification({
+                        type: "danger",
+                        message: "Movie not found!"
+                      });
+                    // throw new Error('Movie not found!')
                     // UI.showAlert("Sorry, Movie not found", "danger");
 
                 }
@@ -39,7 +50,9 @@ const DataFetching = () => {
     },[movieInputFromClick])
     
     
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.preventDefault()
+
         setMovieInputFromClick(movieInput)
         // movies.map((movie, i) => {
         //   console.log(movie)
@@ -50,9 +63,11 @@ const DataFetching = () => {
         movies ? (
             <>
             <Header title="Search your movies here">
-                <input value ={movieInput} onChange={e => setMovieInput(e.target.value)}/>
+                <form>
+                    <input value ={movieInput} onChange={e => setMovieInput(e.target.value)}/>
 
-                <button onClick={handleClick} >Search</button>
+                    <button type="submit" onClick={handleClick} >Search</button>
+                </form>
             </Header>
 
             <div>
@@ -85,7 +100,7 @@ const DataFetching = () => {
                                 </p>
 
                                 <p>
-                                    {/* <Link to={`/new/${id}`} > Add movie...</Link> */}
+                                    <Link to={`/new/2`} > Add movie...</Link>
                                 </p>
                             </Media.Body>
                         </Media>
