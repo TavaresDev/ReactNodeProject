@@ -7,7 +7,7 @@ import Header from '../../shared/Header';
 import MovieForm from '../MovieForm';
 
 const AddFromApi = (props) => {
-    const [imdbID, setImdbID] = useState({})
+    const [imdbID, setImdbID] = useState("tt1250777")
     
     // const [inputs, setInputs] = useState({});
     const [preload, setPreload] = useState({});

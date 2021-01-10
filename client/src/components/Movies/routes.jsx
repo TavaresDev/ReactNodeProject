@@ -7,6 +7,7 @@ import Show from './Show';
 import New from './New';
 import Edit from './Edit';
 import AddFromApi from './AddFromAPI';
+import MovieDetails from './MovieDetails';
 
 const Routes = () => {
   const { user } = useContext(UserContext);
@@ -15,6 +16,7 @@ const Routes = () => {
     <Switch>
       <Route exact path="/new" component={New}/>
       <Route exact path="/movies/add/" component={AddFromApi}/>
+      <Route exact path="/movies/details" component={MovieDetails}/>
 
       {user && user.token ? (
         <>
