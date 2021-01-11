@@ -52,7 +52,6 @@ const DataFetching = () => {
     
     const handleClick = (e) => {
         e.preventDefault()
-
         setMovieInputFromClick(movieInput)
         // movies.map((movie, i) => {
         //   console.log(movie)
@@ -90,17 +89,13 @@ const DataFetching = () => {
                                 </p>
                                 <p>
                                     <strong>Year:</strong>&nbsp;{movie.Year}
-                                </p>
-                                <p>
-                                    <strong>Director:</strong>&nbsp;{movie.Director}
-                                </p>
-            
+                                </p>           
                                 <p>
                                     <strong>IMDB ID:</strong>&nbsp;{movie.imdbID}
                                 </p>
 
                                 <p>
-                                    <Link to={`/new/2`} > Add movie...</Link>
+                                    <Link to={`/movies/details/${movie.imdbID}`} > Movie details</Link>
                                 </p>
                             </Media.Body>
                         </Media>

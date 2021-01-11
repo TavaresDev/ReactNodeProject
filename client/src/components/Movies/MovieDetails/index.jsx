@@ -7,15 +7,13 @@ import Header from '../../shared/Header';
 import MovieForm from '../MovieForm';
 
 const MovieDetails = (props) => {
-    const [imdbID, setImdbID] = useState("tt1250777")
-    
-    // const [inputs, setInputs] = useState({});
+
+    const { id } = useParams();
     const [movieData, setMovieData] = useState({});
 
-    // const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
-        Axios.get(`https://www.omdbapi.com/?i=${imdbID}&plot=full&apikey=8a2a252`)
+        Axios.get(`https://www.omdbapi.com/?i=${id}&plot=full&apikey=8a2a252`)
             .then(res => {
                 console.log(res)
                 console.log(res.data)
@@ -24,7 +22,7 @@ const MovieDetails = (props) => {
             .catch(err => {
                 console.log(err)
             })
-    },[imdbID])
+    },[id])
   
     // useEffect(() => {
     // setInputs({...preloadData});

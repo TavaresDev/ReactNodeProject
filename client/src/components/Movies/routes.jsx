@@ -16,7 +16,7 @@ const Routes = () => {
     <Switch>
       <Route exact path="/new" component={New}/>
       <Route exact path="/movies/add/" component={AddFromApi}/>
-      <Route exact path="/movies/details" component={MovieDetails}/>
+      <Route exact path="/movies/details/:id" component={MovieDetails}/>
 
       {user && user.token ? (
         <>
