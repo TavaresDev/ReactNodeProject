@@ -1,11 +1,13 @@
+// enviroment variables
 require('dotenv').config();
 
+//webserver and router
 const express = require('express');
 const app = express();
 const cors = require('cors');
 app.use(cors());
 
-// Mongo access
+// Mongo access, and Object data model
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DB_URI, {
   auth: {
@@ -40,7 +42,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// Setting up Passport JWT
+// Setting up Passport JWT, persist authentication
 const JWTstrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
 
