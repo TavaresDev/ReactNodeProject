@@ -11,7 +11,6 @@ const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
   const { globalStore } = useContext(GlobalStoreContext);    
   const { user, setUser } = useContext(UserContext);
   const { setNotification } = useContext(NotificationContext);
-  const [ movie, setMovie ] = useState();
   
   const [inputs, setInputs] = useState({
     ...preloadData
@@ -19,9 +18,6 @@ const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
 
   const [redirect, setRedirect] = useState(false);
 
-  // useEffect(() => {
-  // setInputs({...preloadData});
-  // }, [preloadData])
 
   const handleChange = event => {
     event.persist();
