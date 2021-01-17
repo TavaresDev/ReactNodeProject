@@ -15,15 +15,16 @@ const Edit = (props) => {
   //figuere ou to pass movie id
   // const id = props.movieDetails.movieID
   const { id } = useParams();
-  const [preload, setPreload] = useState({});
+  // const [preload, setPreload] = useState({});
   const { globalStore } = useContext(GlobalStoreContext);
   const { setNotification } = useContext(NotificationContext);
 
   useEffect(() => {
     Axios.get(`http://localhost:4000/movies/${id}`)
     .then(({ data }) => {
-      setPreload(data);
-      console.log(preload)
+      // setPreload(data);
+      setMovieDetails(data)
+      console.log(data)
     })
     .catch(error => {
       setNotification({
@@ -36,7 +37,7 @@ const Edit = (props) => {
 
   return (
 
-    preload ? (
+    movieDetails ? (
       <>
         <Header title="Edit Movie!"/>
         
@@ -46,7 +47,7 @@ const Edit = (props) => {
           </p>
 
           <MovieForm
-            preloadData={ preload }
+            preloadData={ movieDetails }
             endpoint="movies/update"
             buttonLabel="Update Movie"
           />

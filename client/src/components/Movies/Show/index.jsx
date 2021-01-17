@@ -57,6 +57,9 @@ const Show = (props) => {
               <p>
                 <strong>IMDB ID:</strong>&nbsp;{movieDetails._id}
               </p>
+              <p>
+                <strong>IMDB ID:</strong>&nbsp;{movieDetails.director}
+              </p>
 
               <p>
                 <Link to={`/movies/edit/${id}`} > Edit movie...</Link>

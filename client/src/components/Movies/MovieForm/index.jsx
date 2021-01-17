@@ -13,7 +13,9 @@ const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
   const { setNotification } = useContext(NotificationContext);
   const [ movie, setMovie ] = useState();
   
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({
+    ...preloadData
+  });
 
   const [redirect, setRedirect] = useState(false);
 
@@ -29,7 +31,6 @@ const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
     });
   };
 
-  console.log(inputs);
   const handleSubmit = async event => {
     event.preventDefault();
 
@@ -40,17 +41,17 @@ const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
         secret_token: (user && user.token)
       })
       .then(({ data }) => {
-        // if (data && data.token) setUser(data);
-        setNotification({
-          type: "success",
-          message: "This action was performed successfully."
-        });
-
+        console.log(data)
+        if (data){
+          setNotification({
+            type: "success",
+            message: "This action was performed successfully."
+          });
+        }
         setRedirect(true);
       })
       .catch(error => {
         console.error(error.message);
-
         setNotification({
           type: "danger",
           message: `There was an issue performing this action: ${error.message}`

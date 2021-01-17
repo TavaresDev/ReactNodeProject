@@ -10,6 +10,8 @@ const MovieDetails = (props) => {
 
     const { id } = useParams();
     const [movieData, setMovieData] = useState({});
+    const [preload, setPreload] = useState({});
+    
 
 
     useEffect(() => {
@@ -18,6 +20,7 @@ const MovieDetails = (props) => {
                 console.log(res)
                 console.log(res.data)
                 setMovieData(res.data)
+                setPreload(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -25,8 +28,8 @@ const MovieDetails = (props) => {
     },[id])
   
     // useEffect(() => {
-    // setInputs({...preloadData});
-    // }, [preloadData])
+    // setInputs({...res.data});
+    // }, [res.data])
     
   
     // const handleChange = event => {
@@ -53,9 +56,7 @@ const MovieDetails = (props) => {
                 />
                 <Media.Body>
                     <h5>{movieData.Title}</h5>
-                    <p>
-                        {/* <strong>Title:</strong>&nbsp;{movieData.Title} */}
-                    </p>
+
                     <p>
                         <strong>Year:</strong>&nbsp;{movieData.Year}
                     </p>
@@ -83,6 +84,10 @@ const MovieDetails = (props) => {
 
                     <p>
                         {/* <Link to={`/movies/edit/${id}`} > Edit movie...</Link> */}
+                        <Container>
+                            <MovieForm endpoint="movies"
+                            preloadData={ preload }/>
+                        </Container>
                     </p>
                 </Media.Body>
             </Media>
