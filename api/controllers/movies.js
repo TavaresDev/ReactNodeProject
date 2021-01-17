@@ -23,7 +23,6 @@ exports.featured = async (req, res, next) => {
 
 exports.show = async (req, res, next) => {
   try {
-    // const _id  = req.params.movie;
     let movie = await Movie.findById(req.params.id);
     res.status(200).json(movie);
   } catch (error) {
@@ -40,14 +39,20 @@ exports.create = async (req, res, next) => {
       year,
       imdbID,
       poster,
-      rating
+      rating,
+      director,
+      plot,
+      genre
     } = req.body;
     const movie = await Movie.create({
         title,
         year,
         imdbID,
         poster,
-        rating
+        rating,
+        director,
+        plot,
+        genre
     });
     res.status(200).json({message: 'Movie was created successfully', status: 'success', movie: movie});
   } catch (error) {
@@ -58,7 +63,7 @@ exports.create = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
     try {
-      const { _id, title, year, imdbID, poster, rating } = req.body;
+      const { _id, title, year, imdbID, poster, rating, director ,plot, genre} = req.body;
       console.log(req.body);
       const movie = await Movie.findOneAndUpdate({ _id }, {
         title,
@@ -66,6 +71,9 @@ exports.update = async (req, res, next) => {
         imdbID,
         poster,
         rating,
+        director,
+        plot,
+        genre
       });
       res.status(200).json({message: 'Movie was updated successfully', status: 'success', movie: movie});
     } catch (error) {

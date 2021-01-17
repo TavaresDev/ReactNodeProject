@@ -1,7 +1,7 @@
 const { index, featured, show, create, update, destroy, search } = require('../controllers/movies');
 
 module.exports = router => {
-    //GET loocalhost:4000/movies
+    //GET localhost:4000/movies
     router.get('/movies', index);
     
     router.get('/movies/featured', featured);
