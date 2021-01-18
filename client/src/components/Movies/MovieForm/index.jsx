@@ -11,12 +11,12 @@ const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
   const { globalStore } = useContext(GlobalStoreContext);    
   const { user, setUser } = useContext(UserContext);
   const { setNotification } = useContext(NotificationContext);
+  const [redirect, setRedirect] = useState(false);
   
   const [inputs, setInputs] = useState({
     ...preloadData
   });
 
-  const [redirect, setRedirect] = useState(false);
 
 
   const handleChange = event => {

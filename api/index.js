@@ -71,4 +71,4 @@ app.use(handle404s);
 app.use(errorHandler);
 
 const port = process.env.PORT || 4000;
-app.listen(port, () => console.log("Always watching... on port 4000"));
+app.listen(port, () => console.log(`Always watching... on port ${port}`));
