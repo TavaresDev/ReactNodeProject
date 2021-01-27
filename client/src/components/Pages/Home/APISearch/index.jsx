@@ -58,7 +58,6 @@ const DataFetching = () => {
     }
 
     return (
-        movies ? (
             <>
             <Row>
                 <Header title="Search your movies here">
@@ -73,8 +72,7 @@ const DataFetching = () => {
             <Row>
             <Col md={9}>
 
-            <div>
-                {
+            {movies ? (
                     movies.map((movie, i) => (
                         //meke it a component. how to pass data?
                         <Media key = {i}>
@@ -104,9 +102,10 @@ const DataFetching = () => {
                             </Media.Body>
                         </Media>
                     ))
-                }    
+          
                 
-            </div>
+
+            ) : null}
             </Col>
                 <Col md ={3}>
                     <h1>here gos the list</h1>
@@ -120,7 +119,7 @@ const DataFetching = () => {
 
             </Row>
         </>
-    ): null
+
     )
 }
 
