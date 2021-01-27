@@ -1,9 +1,9 @@
 import Axios from 'axios'
 import React, {useState, useEffect, useContext} from 'react'
-import Header from '../../shared/Header'
-import { NotificationContext } from '../../shared/Notifications';
+import Header from '../../../shared/Header'
+import { NotificationContext } from '../../../shared/Notifications';
 
-import { Container, Media } from 'react-bootstrap';
+import { Col, Container, Media, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -18,7 +18,6 @@ const DataFetching = () => {
         .then(res => {
                 console.log(res)
                 console.log(res.data)
-
                 if(res.data.Response === "True"){
                     setMovies(res.data.Search)
                 }else if (res.data.Error == "Too many results."){
@@ -34,7 +33,6 @@ const DataFetching = () => {
                       });
                     // throw new Error('Movie not found!')
                     // UI.showAlert("Sorry, Movie not found", "danger");
-
                 }
             })
             .catch((err) => {
@@ -42,6 +40,7 @@ const DataFetching = () => {
                     console.log("respo")
                 }else if(err.request){
                     console.log("request")
+                    console.log(err)
                 }else{
                     console.log(err)
 
@@ -61,13 +60,18 @@ const DataFetching = () => {
     return (
         movies ? (
             <>
-            <Header title="Search your movies here">
-                <form>
-                    <input value ={movieInput} onChange={e => setMovieInput(e.target.value)}/>
+            <Row>
+                <Header title="Search your movies here">
+                    <form>
+                        <input value ={movieInput} onChange={e => setMovieInput(e.target.value)}/>
 
-                    <button type="submit" onClick={handleClick} >Search</button>
-                </form>
-            </Header>
+                        <button type="submit" onClick={handleClick} >Search</button>
+                    </form>
+                </Header>
+            </Row>
+
+            <Row>
+            <Col md={9}>
 
             <div>
                 {
@@ -103,6 +107,18 @@ const DataFetching = () => {
                 }    
                 
             </div>
+            </Col>
+                <Col md ={3}>
+                    <h1>here gos the list</h1>
+                    <p>alshdasjn</p>
+                    <p>alshdasjn</p>
+                    <p>alshdasjn</p>
+                    <p>alshdasjn</p>
+                </Col>
+                
+  
+
+            </Row>
         </>
     ): null
     )

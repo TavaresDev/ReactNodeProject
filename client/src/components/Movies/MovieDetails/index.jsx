@@ -84,10 +84,10 @@ const MovieDetails = (props) => {
 
                     <p>
                         {/* <Link to={`/movies/edit/${id}`} > Edit movie...</Link> */}
-                        <Container>
+                        {/* <Container>
                             <MovieForm endpoint="movies"
                             preloadData={ preload }/>
-                        </Container>
+                        </Container> */}
                     </p>
                 </Media.Body>
             </Media>
