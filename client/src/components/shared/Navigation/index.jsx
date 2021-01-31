@@ -24,21 +24,37 @@ const Navigation = () => {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand>Movie App</Navbar.Brand>
+      <Link to="/" component={NavLink}>
+        <Navbar.Brand>Movie App</Navbar.Brand>
+        
+      </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Link to="/" component={NavLink}>Home</Link>
-          <Link to="/movies" component={NavLink}>Movies</Link>
+        <Nav >
+        {user && user.token ? (
+            <>
+              <Link to="/movies" component={NavLink}>Movies</Link>
+              <Link to="/new" component={NavLink}>Add Movie</Link>
+            </>
+          ) : (
+            <>
+              
+            </>
+          )}
+
+          {/* <Link to="/" component={NavLink}>Home</Link> */}
+
+
+        </Nav>
+        <Nav className="ml-auto">
 
           {user && user.token ? (
             <>
-              <Link to="/users" component={NavLink}>Users</Link>
+              {/* <Link to="/users" component={NavLink}>Users</Link> */}
               <Link to="/profile" component={NavLink}>Profile</Link>
               <Link to="/profile/edit" component={NavLink}>Edit Profile</Link>
               <Link to="/logout" component={NavLink}>Logout</Link>
               {/* //movies */}
-              <Link to="/new" component={NavLink}>Add Movie</Link>
             </>
           ) : (
             <>
@@ -46,6 +62,7 @@ const Navigation = () => {
               <Link to="/register" component={NavLink}>Register</Link>
             </>
           )}
+
         </Nav>
       </Navbar.Collapse>
     </Navbar>
