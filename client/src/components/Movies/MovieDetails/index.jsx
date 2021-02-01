@@ -13,15 +13,19 @@ const MovieDetails = (props) => {
     const [movieData, setMovieData] = useState(null);
     const [preload, setPreload] = useState({});
 
+    const omdbURL = `https://www.omdbapi.com/?i=${id}&plot=full&apikey=8a2a252`
+    const imagePath = 'https://image.tmdb.org/t/p/w500/'
+    const tmdbURL = `https://api.themoviedb.org/3/find/${id}?api_key=16de3d175c4180739924271ad90578a1&language=en-US&external_source=imdb_id`
+    const tmdbURL2 = `https://api.themoviedb.org/3/movie/${id}?api_key=16de3d175c4180739924271ad90578a1&language=en-US&append_to_response=videos,watch/providers`
 
 
     useEffect(() => {
-        Axios.get(`https://www.omdbapi.com/?i=${id}&plot=full&apikey=8a2a252`)
+        Axios.get(tmdbURL2)
             .then(res => {
                 console.log(res)
                 console.log(res.data)
                 setMovieData(res.data)
-                setPreload(res.data)
+                // setPreload(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -50,29 +54,29 @@ const MovieDetails = (props) => {
                 <Container>
                     <Media>
                         <img
-                            src={movieData.Poster ? movieData.Poster : "https://via.placeholder.com/150"}
-                            width={150}
-                            height={150}
+                            src={movieData.poster_path ? imagePath + movieData.poster_path : "https://via.placeholder.com/150"}
+                            width={350}
+                            height={450}
                             className="mr-3"
                         />
                         <Media.Body>
-                            <h5>{movieData.Title}</h5>
+                            <h5>{movieData.title}</h5>
 
                             <p>
-                                <strong>Year:</strong>&nbsp;{movieData.Year}
+                                <strong>Year:</strong>&nbsp;{movieData.release_date}
                             </p>
 
                             <p>
-                                <strong>IMDB ID:</strong>&nbsp;{movieData.imdbID}
+                                <strong>IMDB ID:</strong>&nbsp;{movieData.imdb_id}
                             </p>
                             <p>
-                                <strong>IMDB Rating:</strong>&nbsp;{movieData.imdbRating}
+                                <strong>Vote average:</strong>&nbsp;{movieData.vote_average}
                             </p>
                             <p>
-                                <strong>Plot:</strong>&nbsp;{movieData.Plot}
+                                <strong>Plot:</strong>&nbsp;{movieData.overview}
                             </p>
                             <p>
-                                <strong>IMDB Votes:</strong>&nbsp;{movieData.imdbVotes}
+                                <strong> Votes:</strong>&nbsp;{movieData.vote_count}
                             </p>
 
                             <p>
@@ -80,6 +84,9 @@ const MovieDetails = (props) => {
                             </p>
                             <p>
                                 <strong>Director:</strong>&nbsp;{movieData.Director}
+                            </p>
+                            <p>
+                                <strong>Where to watch:</strong>&nbsp;{movieData.Director}
                             </p>
 
 

@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Axios from 'axios'
 
-import { Container } from 'react-bootstrap';
+import { Card, Container, Image, Row } from 'react-bootstrap';
 import Header from '../../shared/Header';
 import Banner from './Banner';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const tmdbKey = '16de3d175c4180739924271ad90578a1'
   // const fetchURL = `https://www.omdbapi.com/?s=${movieInputFromClick}&type=movie&page=1&apikey=8a2a252`
   const fetchtbdbURL = `https://api.themoviedb.org/3/movie/popular?api_key=16de3d175c4180739924271ad90578a1&language=en-US&page=1`
+  const imagePath = 'https://image.tmdb.org/t/p/w500/'
+
+
   const [homeMovies, setHomeMovies] = useState([])
 
   useEffect(() => {
@@ -38,12 +42,28 @@ const Home = () => {
 
       <Banner title='Discover Movies and Where to watch Them' subTitle='' img='' />
 
-      <Container>
         {homeMovies.map((movie) => (
-          <h1>{movie.id}</h1>
+      <Container>
+        <Row>
+
+          
+          <Card style={{ width: '16rem' }} className="bg-dark text-white">
+          <Card.Img src={imagePath + movie.poster_path} alt="Card image" />
+          {/* <Card.ImgOverlay>
+            <Card.Title>{movie.title}</Card.Title>
+            <Card.Text>
+            This is a wider card with supporting text below as a natural lead-in to
+            additional content. This content is a little bit longer.
+            </Card.Text>
+            <Card.Text>Last updated 3 mins ago</Card.Text>
+          </Card.ImgOverlay> */}
+          
+          <Link to={`/movies/details/${movie.id}`} > Movie details</Link>
+          </Card>
+          </Row>
+       </Container>
         ))}
 
-      </Container>
 
 
     </>
