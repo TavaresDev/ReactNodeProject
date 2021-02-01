@@ -17,9 +17,9 @@ const Banner = (props) => {
         return (
             <Styles.Jumbotron fluid>
                 <Container>
-                    <h1 >{title}</h1>
+                    <h1>{title}</h1>
                     <h2>{subTitle}</h2>
-                    <Image src={img} fluid />
+                    {/* <Image src={img} fluid /> */}
                 </Container>
             </Styles.Jumbotron>
 

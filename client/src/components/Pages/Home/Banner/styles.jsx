@@ -6,16 +6,33 @@ export default {
 
     Jumbotron:styled.div`
         background-color: #000;
-        background-position: center center, center top;
-        background-repeat: repeat, no-repeat;
-        background-image: url('https://via.placeholder.com/1200x600');
+        /* background-position: center center, center top; */
+        /* background-repeat: repeat, no-repeat; */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url("/images/imgCinema.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
         /* width: 2000px; */
         height: 80vh;
         /* height: 1200px; */
         
             h1{
-                
-                
+                text-align: center;
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+            }
+            h2{
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+            
             }
 
 

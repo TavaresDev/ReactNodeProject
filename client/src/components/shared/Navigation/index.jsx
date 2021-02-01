@@ -23,26 +23,29 @@ const Navigation = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Link to="/" component={NavLink}>
         <Navbar.Brand>Movie App</Navbar.Brand>
-        
       </Link>
-      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav >
-        {user && user.token ? (
-            <>
-              <Link to="/movies" component={NavLink}>Movies</Link>
-              <Link to="/new" component={NavLink}>Add Movie</Link>
-            </>
-          ) : (
-            <>
-              
-            </>
-          )}
 
-          {/* <Link to="/" component={NavLink}>Home</Link> */}
+      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+      <Navbar.Collapse id="basic-navbar-nav" className='pl-4' >
+        <Nav >
+          {/* left nav */}
+          {user && user.token ? (
+              <>
+                <Link to="/search" component={NavLink}>Search</Link>
+                {/* <Link to="/movies" component={NavLink}>Movies</Link> */}
+                <Link to="/new" component={NavLink}>Add Movie</Link>
+              </>
+            ) : (
+              <>
+              <Link to="/search" component={NavLink}>Search</Link>
+                
+              </>
+            )}
+
+            {/* <Link to="/" component={NavLink}>Home</Link> */}
 
 
         </Nav>
