@@ -63,7 +63,6 @@ const DataFetching = () => {
                 <Header title="Search your movies here">
                     <form>
                         <input value ={movieInput} onChange={e => setMovieInput(e.target.value)}/>
-
                         <button type="submit" onClick={handleClick} >Search</button>
                     </form>
                 </Header>
