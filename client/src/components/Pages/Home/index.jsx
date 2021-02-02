@@ -42,10 +42,12 @@ const Home = () => {
 
       <Banner title='Discover Movies and Where to watch Them' subTitle='' img='' />
 
+      {/* <Container> */}
+          <h2>Fetured</h2>
+        <Row className='d-flex'>
         {homeMovies.map((movie) => (
-      <Container>
-        <Row>
 
+          <Link to={`/movies/details/${movie.id}`} >
           
           <Card style={{ width: '16rem' }} className="bg-dark text-white">
           <Card.Img src={imagePath + movie.poster_path} alt="Card image" />
@@ -58,11 +60,11 @@ const Home = () => {
             <Card.Text>Last updated 3 mins ago</Card.Text>
           </Card.ImgOverlay> */}
           
-          <Link to={`/movies/details/${movie.id}`} > Movie details</Link>
           </Card>
-          </Row>
-       </Container>
+          </Link>
         ))}
+        </Row>
+     {/* </Container> */}
 
 
 
