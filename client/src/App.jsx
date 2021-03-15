@@ -11,15 +11,15 @@ import Footer from './components/shared/Footer';
 const App = () => {
   return (
     <GlobalStoreProvider>
-      <NotificationProvider>
         <UserProvider>
           <BrowserRouter>
             <Navigation/>
+      <NotificationProvider>
             <Routes/>
             <Footer/>
+      </NotificationProvider>
           </BrowserRouter>
         </UserProvider>
-      </NotificationProvider>
     </GlobalStoreProvider>
   );
 }
