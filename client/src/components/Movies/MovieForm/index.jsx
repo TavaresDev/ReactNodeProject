@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext} from 'react';
 import { Form, Button } from 'react-bootstrap';
 import Axios from 'axios';
 import { UserContext } from '../../Authentication/UserProvider';
@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom';
 
 const MovieForm = ({ endpoint, preloadData = {}, buttonLabel }) => {
   const { globalStore } = useContext(GlobalStoreContext);    
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const { setNotification } = useContext(NotificationContext);
   const [redirect, setRedirect] = useState(false);
   

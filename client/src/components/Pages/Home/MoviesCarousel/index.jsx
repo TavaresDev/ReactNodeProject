@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState} from 'react'
 import { Link } from 'react-router-dom';
-import { Card, Container, Image, Row } from 'react-bootstrap';
+import { Card} from 'react-bootstrap';
 
 
 // https://www.npmjs.com/package/react-alice-carousel
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
 
-const responsive = {
-	0: { items: 1 },
-	668: { items: 4 },
-	1024: { items: 5 },
-}
+// const responsive = {
+// 	0: { items: 1 },
+// 	668: { items: 4 },
+// 	1024: { items: 5 },
+// }
 
 const MoviesCarousel = ({ moviesCarousel, moviesCarouselName }) => {
     const imagePath = 'https://image.tmdb.org/t/p/w500/'
@@ -28,16 +28,16 @@ const MoviesCarousel = ({ moviesCarousel, moviesCarouselName }) => {
     const numMovies = (moviesCarousel.length -4)
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const slidePrev = () => {
-        if(activeIndex > 0 && activeIndex <= numMovies )
-        setActiveIndex(activeIndex - 1)
-    }
-    const slideNext = () => {
-        if(activeIndex < numMovies )
-        setActiveIndex(activeIndex + 1)
-    }
+    // const slidePrev = () => {
+    //     if(activeIndex > 0 && activeIndex <= numMovies )
+    //     setActiveIndex(activeIndex - 1)
+    // }
+    // const slideNext = () => {
+    //     if(activeIndex < numMovies )
+    //     setActiveIndex(activeIndex + 1)
+    // }
 
-    const onSlideChanged = ({ item }) => setActiveIndex(item);
+    // const onSlideChanged = ({ item }) => setActiveIndex(item);
 
     return (
         <div className="mt-5">

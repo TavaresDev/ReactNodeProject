@@ -22,7 +22,7 @@ const Show = (props) => {
       setMovieDetails(data);
       console.log(data)
     });
-  }, []);
+  }, [globalStore.REACT_APP_ENDPOINT, id]);
 
   return (
     movieDetails ? (
@@ -42,6 +42,7 @@ const Show = (props) => {
               width={150}
               height={150}
               className="mr-3"
+              alt = {movieDetails.title}
             />
             <Media.Body>
               <h5>{movieDetails.title}</h5>

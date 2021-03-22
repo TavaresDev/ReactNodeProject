@@ -4,9 +4,7 @@ import styled from 'styled-components'
 
 export default {
 
-
-    div: styled.div`
-       
+    Div: styled.div`
         header{
             display:flex;
             align-items:center;

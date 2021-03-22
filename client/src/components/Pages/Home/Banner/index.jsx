@@ -1,5 +1,5 @@
 import React from 'react'
-import { Jumbotron, Container , Image} from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import Styles from './styles'
 
 
@@ -7,7 +7,7 @@ import Styles from './styles'
 
 const Banner = (props) => {
     //add component logic here
-    const {title, subTitle, img } = props
+    const {title, subTitle } = props
 
     try {
         if (!title) {

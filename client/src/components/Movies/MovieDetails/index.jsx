@@ -1,25 +1,25 @@
 import Axios from 'axios';
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { Container, Media, Spinner, Col, Row , Button} from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import Header from '../../shared/Header';
+
 import Loading from '../../shared/Loading';
-import MovieForm from '../MovieForm';
+
 import Styles from './styles'
 
 const MovieDetails = () => {
 
     const { id } = useParams();
-    const [preload, setPreload] = useState({});
+    // const [preload, setPreload] = useState({});
     const [movieData, setMovieData] = useState(null);
     const [watchMovieData, setWatchMovieData] = useState(null);
     const [movieKey, setMovieKey] = useState(null);
 
-    const omdbURL = `https://www.omdbapi.com/?i=${id}&plot=full&apikey=8a2a252`
+    // const omdbURL = `https://www.omdbapi.com/?i=${id}&plot=full&apikey=8a2a252`
     const posterImagePath = 'https://image.tmdb.org/t/p/w500/'
     const backdropImagePath = 'https://image.tmdb.org/t/p/w1280/'
-    const tmdbURL = `https://api.themoviedb.org/3/find/${id}?api_key=16de3d175c4180739924271ad90578a1&language=en-US&external_source=imdb_id`
+   
     const tmdbURL2 = `https://api.themoviedb.org/3/movie/${id}?api_key=16de3d175c4180739924271ad90578a1&language=en-US&append_to_response=videos,watch/providers`
 
 
@@ -35,13 +35,13 @@ const MovieDetails = () => {
 
                 setWatchMovieData(res.data[`watch/providers`])
 
-                console.log(watchMovieData.results.BR)
+                // console.log(watchMovieData.results.BR)
 
             })
             .catch(err => {
                 console.log(err)
             })
-    }, [id])
+    }, [id, tmdbURL2])
 
     // useEffect(() => {
     // setInputs({...res.data});
@@ -64,7 +64,7 @@ const MovieDetails = () => {
 
     return (
         movieData ? (
-            <Styles.div>
+            <Styles.Div>
                 <header style={{
                     backgroundImage: `url(${backdropImagePath + movieData.backdrop_path})`,
                     // backgroundPosition: 'center',
@@ -103,17 +103,18 @@ const MovieDetails = () => {
                <section>
                 <Container>
                     <Row>
-                        <Col className='box' md={4} sm={3} xs={12}>
+                        <Col className='boxx' md={4} sm={3} xs={12}>
 
                             <img
                                 src={movieData.poster_path ? posterImagePath + movieData.poster_path : "https://via.placeholder.com/150"}
                                 width={'100%'}
                                 maxWidth={350}
+                                alt={movieData.title}
                             // height={450}
                             // className="mr-3"
                             />
                         </Col>
-                        <Col md={8} sm={9} xs={12} className='box'>
+                        <Col md={8} sm={9} xs={12} className='boxx'>
 
 
 
@@ -171,7 +172,7 @@ const MovieDetails = () => {
 
                 </Container>
             </section>
-            </Styles.div>
+            </Styles.Div>
         ) : <Loading />
     )
 }

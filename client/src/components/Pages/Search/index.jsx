@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import Footer from '../../shared/Footer'
 import DataFetching from './APISearch'
 
 const Search = () => {
@@ -8,7 +7,6 @@ const Search = () => {
 
         <Container>
             <DataFetching />
-
         </Container>
 
 

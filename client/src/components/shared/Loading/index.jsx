@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Media, Spinner,Col, Row } from 'react-bootstrap';
+import { Container, Spinner,Col, Row } from 'react-bootstrap';
 
 const Loading = () => {
     return (

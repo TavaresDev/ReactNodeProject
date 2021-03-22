@@ -3,7 +3,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import Header from '../../../shared/Header'
 import { NotificationContext } from '../../../shared/Notifications';
 
-import { Col, Container, Media, Row } from 'react-bootstrap';
+import { Col, Media, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -14,7 +14,7 @@ const DataFetching = () => {
     const { setNotification } = useContext(NotificationContext);
 
     const omdbURL = `https://www.omdbapi.com/?s=${movieInputFromClick}&type=movie&page=1&apikey=8a2a252`
-    const tmdbURL = `https://api.themoviedb.org/3/search/movie?api_key=16de3d175c4180739924271ad90578a1&language=en-US&query=${movieInputFromClick}page=1&include_adult=false`
+    // const tmdbURL = `https://api.themoviedb.org/3/search/movie?api_key=16de3d175c4180739924271ad90578a1&language=en-US&query=${movieInputFromClick}page=1&include_adult=false`
 
     useEffect(() => {
         Axios.get(omdbURL)
@@ -23,13 +23,13 @@ const DataFetching = () => {
                 console.log(res.data)
                 if(res.data.Response === "True"){
                     setMovies(res.data.Search)
-                }else if (res.data.Error == "Too many results."){
+                }else if (res.data.Error === "Too many results."){
                     setNotification({
                         type: "danger",
                         message: "Too many results"
                       });
                     // throw new Error('Too many results.')
-                }else if(res.data.Error == "Movie not found!"){
+                }else if(res.data.Error === "Movie not found!"){
                     setNotification({
                         type: "danger",
                         message: "Movie not found!"
@@ -49,7 +49,7 @@ const DataFetching = () => {
 
                 }
             })
-    },[movieInputFromClick])
+    },[movieInputFromClick, setNotification, omdbURL])
     
     
     const handleClick = (e) => {
@@ -80,7 +80,7 @@ const DataFetching = () => {
                         <Media key = {i}>
 
                             <img
-                                src={movie.Poster != 'N/A' ? movie.Poster :"https://via.placeholder.com/150"}
+                                src={movie.Poster !== 'N/A' ? movie.Poster :"https://via.placeholder.com/150"}
                                 alt={movie.Title}
                                 width={300}
                                 height={300}

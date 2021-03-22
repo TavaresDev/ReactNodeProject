@@ -9,7 +9,7 @@ import Header from '../../shared/Header';
 import MovieForm from '../MovieForm';
 
 const Edit = () => {
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext);
   const [movieDetails, setMovieDetails] = useState(null);
   const { id } = useParams();
   // const [preload, setPreload] = useState({});
@@ -29,7 +29,7 @@ const Edit = () => {
         message: `There was an error retrieving the Movie: ${error.message}`
       });
     });
-  }, []);
+  }, [globalStore.REACT_APP_ENDPOINT, id ,setNotification]);
 
 
   return (
