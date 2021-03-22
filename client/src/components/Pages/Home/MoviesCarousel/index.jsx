@@ -25,8 +25,8 @@ const MoviesCarousel = ({ moviesCarousel, moviesCarouselName }) => {
         </Link>
     ))
 
-    const numMovies = (moviesCarousel.length -4)
-    const [activeIndex, setActiveIndex] = useState(0);
+    // const numMovies = (moviesCarousel.length -4)
+    // const [activeIndex, setActiveIndex] = useState(0);
 
     // const slidePrev = () => {
     //     if(activeIndex > 0 && activeIndex <= numMovies )

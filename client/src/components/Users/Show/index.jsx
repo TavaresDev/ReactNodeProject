@@ -17,7 +17,7 @@ const Show = () => {
     .then(({ data }) => {
       setUserDetails(data);
     });
-  }, []);
+  }, [globalStore.REACT_APP_ENDPOINT, user.token]);
 
   return (
     userDetails ? (
@@ -34,6 +34,7 @@ const Show = () => {
               width={150}
               height={150}
               className="mr-3"
+              alt=''
             />
             <Media.Body>
               <h5>{userDetails.name}</h5>

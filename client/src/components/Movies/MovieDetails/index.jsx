@@ -6,14 +6,14 @@ import { useParams } from 'react-router-dom';
 
 import Loading from '../../shared/Loading';
 
-import Styles from './styles'
+import DetailsWraper from './styles'
 
 const MovieDetails = () => {
 
     const { id } = useParams();
     // const [preload, setPreload] = useState({});
     const [movieData, setMovieData] = useState(null);
-    const [watchMovieData, setWatchMovieData] = useState(null);
+    // const [watchMovieData, setWatchMovieData] = useState(null);
     const [movieKey, setMovieKey] = useState(null);
 
     // const omdbURL = `https://www.omdbapi.com/?i=${id}&plot=full&apikey=8a2a252`
@@ -33,7 +33,7 @@ const MovieDetails = () => {
                 console.log(res.data.videos.results[0])
                 setMovieKey(res.data.videos.results[0].key)
 
-                setWatchMovieData(res.data[`watch/providers`])
+                // setWatchMovieData(res.data[`watch/providers`])
 
                 // console.log(watchMovieData.results.BR)
 
@@ -64,7 +64,7 @@ const MovieDetails = () => {
 
     return (
         movieData ? (
-            <Styles.Div>
+            <DetailsWraper>
                 <header style={{
                     backgroundImage: `url(${backdropImagePath + movieData.backdrop_path})`,
                     // backgroundPosition: 'center',
@@ -78,9 +78,7 @@ const MovieDetails = () => {
                     <h1>{movieData.tagline}</h1>
 
 
-                    {/* <iframe width="560" height="315" src={`https://www.youtube.com/embed/${movieKey}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-
-
+                    <iframe title="movie video" width="560" height="315" src={`https://www.youtube.com/embed/${movieKey}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                     {/* <img
                                 src={movieData.backdrop_path ? backdropImagePath + movieData.backdrop_path : "https://via.placeholder.com/150"}
@@ -94,11 +92,6 @@ const MovieDetails = () => {
                 </header>
                 {/* <Header title="Movie Complete details" /> */}
                 {/* header with video of movie */}
-
-
-
-
-
 
                <section>
                 <Container>
@@ -172,7 +165,7 @@ const MovieDetails = () => {
 
                 </Container>
             </section>
-            </Styles.Div>
+            </DetailsWraper>
         ) : <Loading />
     )
 }

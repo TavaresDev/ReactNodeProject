@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import React, { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { UserContext } from '../../Authentication/UserProvider';
+// import { UserContext } from '../../Authentication/UserProvider';
 import { GlobalStoreContext } from '../../shared/Globals';
 import { NotificationContext } from '../../shared/Notifications';
 import { Container } from 'react-bootstrap';

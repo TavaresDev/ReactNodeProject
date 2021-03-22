@@ -2,14 +2,12 @@ import styled from 'styled-components'
 
 // styled-components -  this syntax export a default object
 
-export default {
-
-    Div: styled.div`
+export default DetailsWraper = styled.div`
         header{
             display:flex;
             align-items:center;
             justify-content:center;
-            
+
             /* color:#fff */
         }
         header > div {
@@ -38,6 +36,6 @@ export default {
             
             } */
 
-
 `
-}
+
+
