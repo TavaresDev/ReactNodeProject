@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 // styled-components -  this syntax export a default object
 // const img = 'https://via.placeholder.com/1200x600'
-export default {
 
-    Jumbotron:styled.div`
+export const Jumbotron = styled.div`
+
         background-color: #000;
         /* background-position: center center, center top; */
         /* background-repeat: repeat, no-repeat; */
@@ -39,6 +39,4 @@ export default {
         background-image: linear-gradient(180deg, transparent, rgba(37,37,37,0.61), #111);
     } */
 
-
 `
-}

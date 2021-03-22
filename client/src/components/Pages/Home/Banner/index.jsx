@@ -1,9 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import Styles from './styles'
-
-
-
+import * as Styles from './styles'
 
 const Banner = (props) => {
     //add component logic here
