@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import Loading from '../../shared/Loading';
 
-import DetailsWraper from './styles'
+import * as S from './styles'
 
 const MovieDetails = () => {
 
@@ -64,7 +64,7 @@ const MovieDetails = () => {
 
     return (
         movieData ? (
-            <DetailsWraper>
+            <S.DetailsWraper>
                 <header style={{
                     backgroundImage: `url(${backdropImagePath + movieData.backdrop_path})`,
                     // backgroundPosition: 'center',
@@ -165,7 +165,7 @@ const MovieDetails = () => {
 
                 </Container>
             </section>
-            </DetailsWraper>
+            </S.DetailsWraper>
         ) : <Loading />
     )
 }

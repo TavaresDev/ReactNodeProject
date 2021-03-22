@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 // styled-components -  this syntax export a default object
 
-export default DetailsWraper = styled.div`
+export const DetailsWraper = styled.div`
         header{
             display:flex;
             align-items:center;
