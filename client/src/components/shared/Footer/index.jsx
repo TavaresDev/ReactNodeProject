@@ -9,7 +9,7 @@ const Footer = () => {
 
             <Container className="text-center">
                 <div>
-                    <a href="https://www.andretavares.dev/" target="_blank">
+                    <a rel="noreferrer" href="https://www.andretavares.dev/" target="_blank">
                         <h4 className='text-secondary'> Developed by Andre Tavares </h4>
                     </a> 
                 </div>

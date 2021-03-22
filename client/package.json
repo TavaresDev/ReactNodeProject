@@ -1,6 +1,5 @@
 {
-
-  "name": "quote-client",
+  "name": "movie-app-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +8,8 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
     "react": "^17.0.1",
     "react-alice-carousel": "^2.4.0",
     "react-bootstrap": "^1.4.0",
