@@ -17,7 +17,7 @@ const Edit = () => {
     .then(({ data }) => {
       setUserDetails(data);
     });
-  }, [user.token]);
+  }, [user.token, globalStore.REACT_APP_ENDPOINT]);
 
   return (
     userDetails ? (
