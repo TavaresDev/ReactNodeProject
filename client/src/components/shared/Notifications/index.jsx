@@ -9,7 +9,7 @@ const NotificationProvider = ({children}) => {
   return (
     <NotificationContext.Provider value={{ notification, setNotification }}>
       {notification ? (
-        <Alert variant={notification.type}>
+        <Alert className='mb-0' variant={notification.type} onClose={() => setNotification(false)} dismissible>
           {notification.message}
         </Alert>
       ) : null}

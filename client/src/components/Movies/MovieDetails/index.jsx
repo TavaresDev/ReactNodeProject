@@ -37,7 +37,7 @@ const MovieDetails = () => {
             .then(res => {
                 // console.log(res)
                 setMovieData(res.data)
-                
+
                 //deal with providers
                 // console.log(res.data)
                 // console.log(res.data.videos.results[0])
@@ -45,7 +45,6 @@ const MovieDetails = () => {
                 // setWatchMovieData(res.data[`watch/providers`])
                 // console.log(watchMovieData.results.BR)
 
-    
                 setMovieDataToApi({
                     title: String(res.data.title),
                     year: Number(res.data.release_date.slice(0, 4)),
@@ -76,7 +75,7 @@ const MovieDetails = () => {
         event.preventDefault();
         console.log('savemovie')
         // console.log(movieDataToApi)
-        if (true) {
+        if (movieDataToApi) {
             Axios.post(`${globalStore.REACT_APP_ENDPOINT}/movies`, {
                 // ...inputs,
                 ...movieDataToApi,
@@ -119,7 +118,7 @@ const MovieDetails = () => {
 
                         {/* <iframe title="movie video" width="560" height="315" src={`https://www.youtube.com/embed/${movieVideoKey}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
 
-         
+
 
                     </div>
                 </header>
