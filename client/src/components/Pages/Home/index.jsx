@@ -59,7 +59,7 @@ const Home = () => {
 
         }
       })
-  }, [])
+  }, [trendingMoviesURL,fetchtbdbURL, topMoviesURL])
 
 
   return (

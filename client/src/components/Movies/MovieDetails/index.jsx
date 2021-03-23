@@ -21,7 +21,7 @@ const MovieDetails = () => {
 
     const [movieData, setMovieData] = useState(null);
     // const [watchMovieData, setWatchMovieData] = useState(null);
-    const [movieVideoKey, setMovieVideoKey] = useState(null);
+    // const [movieVideoKey, setMovieVideoKey] = useState(null);
     const [movieDataToApi, setMovieDataToApi] = useState({})
 
     // const omdbURL = `https://www.omdbapi.com/?i=${id}&plot=full&apikey=8a2a252`
@@ -37,16 +37,15 @@ const MovieDetails = () => {
             .then(res => {
                 // console.log(res)
                 setMovieData(res.data)
-                // setPreload(res.data)
+                
+                //deal with providers
                 // console.log(res.data)
                 // console.log(res.data.videos.results[0])
-                setMovieVideoKey(res.data.videos.results[0].key)
-                // makeDataFitAPI()
-
+                // setMovieVideoKey(res.data.videos.results[0].key)
                 // setWatchMovieData(res.data[`watch/providers`])
-
                 // console.log(watchMovieData.results.BR)
-                console.log(res.data.release_date.slice(0, 4))
+
+    
                 setMovieDataToApi({
                     title: String(res.data.title),
                     year: Number(res.data.release_date.slice(0, 4)),
@@ -56,7 +55,7 @@ const MovieDetails = () => {
                     rating: String(res.data.vote_average),
                 })
                 // console.log(movieSchema)
-                console.log(movieDataToApi)
+                // console.log(movieDataToApi)
 
             })
             .catch(err => {
@@ -120,12 +119,7 @@ const MovieDetails = () => {
 
                         {/* <iframe title="movie video" width="560" height="315" src={`https://www.youtube.com/embed/${movieVideoKey}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
 
-                        {/* <img
-                                src={movieData.backdrop_path ? backdropImagePath + movieData.backdrop_path : "https://via.placeholder.com/150"}
-                                width={'100%'}
-                                // height={450}
-                                // className="mr-3"
-                            /> */}
+         
 
                     </div>
                 </header>
