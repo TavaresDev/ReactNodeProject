@@ -1,14 +1,16 @@
 import Axios from 'axios'
-import React, {useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Header from '../../../shared/Header'
 import { NotificationContext } from '../../../shared/Notifications';
 
 import { Col, Container, Media, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import SearchCard from '../SearchCard';
+import Loading from '../../../shared/Loading';
 
 
 const DataFetching = () => {
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState(null)
     const [movieInput, setMovieInput] = useState('')
     const [movieInputFromClick, setMovieInputFromClick] = useState('ass')
     const { setNotification } = useContext(NotificationContext);
@@ -18,40 +20,39 @@ const DataFetching = () => {
 
     useEffect(() => {
         Axios.get(omdbURL)
-        .then(res => {
+            .then(res => {
                 console.log(res)
-                console.log(res.data)
-                if(res.data.Response === "True"){
+                // console.log(res.data)
+                if (res.data.Response === "True") {
                     setMovies(res.data.Search)
-                }else if (res.data.Error === "Too many results."){
+                } else if (res.data.Error === "Too many results.") {
                     setNotification({
                         type: "danger",
                         message: "Too many results"
-                      });
+                    });
                     // throw new Error('Too many results.')
-                }else if(res.data.Error === "Movie not found!"){
+                } else if (res.data.Error === "Movie not found!") {
                     setNotification({
                         type: "danger",
                         message: "Movie not found!"
-                      });
+                    });
                     // throw new Error('Movie not found!')
-                    // UI.showAlert("Sorry, Movie not found", "danger");
                 }
             })
             .catch((err) => {
-                if(err.response){
+                if (err.response) {
                     console.log("respo")
-                }else if(err.request){
+                } else if (err.request) {
                     console.log("request")
                     console.log(err)
-                }else{
+                } else {
                     console.log(err)
 
                 }
             })
-    },[movieInputFromClick, setNotification, omdbURL])
-    
-    
+    }, [movieInputFromClick, setNotification, omdbURL])
+
+
     const handleClick = (e) => {
         e.preventDefault()
         setMovieInputFromClick(movieInput)
@@ -61,68 +62,30 @@ const DataFetching = () => {
     }
 
     return (
-            <>
-            <Row>
-                <Header title="Search your movies here">
-                    <form>
-                        <input value ={movieInput} onChange={e => setMovieInput(e.target.value)}/>
-                        <button type="submit" onClick={handleClick} >Search</button>
-                    </form>
-                </Header>
-            </Row>
+        <>
 
-            <Row>
-                <Container>
+            <Header title="Search your movies here">
+                <form>
+                    <input value={movieInput} onChange={e => setMovieInput(e.target.value)} />
+                    <button type="submit" onClick={handleClick} >Search</button>
+                </form>
+            </Header>
 
-            <Col md={9}>
 
-            {movies ? (
-                movies.map((movie, i) => (
-                    //meke it a component. how to pass data?
-                    <Media key = {i}>
 
-                            <img
-                                src={movie.Poster !== 'N/A' ? movie.Poster :"https://via.placeholder.com/150"}
-                                alt={movie.Title}
-                                width={300}
-                                height={300}
-                                className="mr-3"
-                                />
-                            <Media.Body>
-                                <h5>{movie.title}</h5>
-                                <p>
-                                    <strong>Title:</strong>&nbsp;{movie.Title}
-                                </p>
-                                <p>
-                                    <strong>Year:</strong>&nbsp;{movie.Year}
-                                </p>           
-                                <p>
-                                    <strong>IMDB ID:</strong>&nbsp;{movie.imdbID}
-                                </p>
+            <Container>
+                {movies ? (movies.map((movie, i) => (
+                    <>
+            {/* {console.log(movie)} */}
 
-                                <p>
-                                    <Link to={`/movies/details/${movie.imdbID}`} > Movie details</Link>
-                                </p>
-                            </Media.Body>
-                        </Media>
-                    ))
-                    
-                    
-                    
-                    ) : null}
-            </Col>
-                <Col md ={3}>
-                    <h1>here gos the list</h1>
-                    <p>alshdasjn</p>
-                    <p>alshdasjn</p>
-                    <p>alshdasjn</p>
-                    <p>alshdasjn</p>
-                </Col>
-                
-  
+                    <SearchCard key={i} poster={movie.Poster} title={movie.Title} year={movie.Year} imdbID={movie.imdbID} overview='' />
+                    </>
+                ))
 
-                    </Container>
-            </Row>
+                ) : <Loading />}
+
+            </Container>
+
         </>
 
     )

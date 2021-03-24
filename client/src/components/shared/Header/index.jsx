@@ -7,8 +7,8 @@ const Header = ({title, children}) => {
   });
 
   return (
-    <div className="">
-      <div className='bg-secondary vw-100 p-5 mb-3'>
+
+      <div className='bg-secondary py-5 mb-3'>
         <Container>
 
         <header>
@@ -33,7 +33,7 @@ const Header = ({title, children}) => {
         </header>
           </Container>
       </div>
-    </div>
+
   );
 }
  
