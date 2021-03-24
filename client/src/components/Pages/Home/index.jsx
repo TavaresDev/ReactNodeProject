@@ -4,7 +4,7 @@ import Axios from 'axios'
 import Banner from './Banner';
 
 import MoviesCarousel from './MoviesCarousel';
-import { Container } from 'react-bootstrap';
+
 
 const Home = () => {
   // const tmdbKey = '16de3d175c4180739924271ad90578a1'

@@ -3,8 +3,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import Header from '../../../shared/Header'
 import { NotificationContext } from '../../../shared/Notifications';
 
-import { Col, Container, Media, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+
 import SearchCard from '../SearchCard';
 import Loading from '../../../shared/Loading';
 

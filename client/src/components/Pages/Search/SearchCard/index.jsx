@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Container, Media, Button } from 'react-bootstrap';
+import { Media, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import * as Styles from './styles'
 
