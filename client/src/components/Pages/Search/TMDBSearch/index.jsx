@@ -3,8 +3,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import Header from '../../../shared/Header'
 import { NotificationContext } from '../../../shared/Notifications';
 
-import { Col, Container, Media, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+
 import SearchCard from '../SearchCard';
 import Loading from '../../../shared/Loading';
 
@@ -87,12 +87,10 @@ const TMDataFetching = () => {
                             poster={movie.poster_path !== null ? posterImagePath + movie.poster_path : "https://via.placeholder.com/150"}
                             title={movie.title}
                             year={movie.release_date}
-                            imdbID={movie.id}
+                            id={movie.id}
                             overview={movie.overview}
                         />
                     ))
-
-
 
                 ) :  <Loading />}
                 
