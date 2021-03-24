@@ -5,9 +5,9 @@ import DataFetching from './APISearch'
 const Search = () => {
     return (
 
-        <Container>
+        <>
             <DataFetching />
-        </Container>
+        </>
 
 
     )

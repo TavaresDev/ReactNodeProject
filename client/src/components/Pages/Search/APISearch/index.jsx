@@ -3,7 +3,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import Header from '../../../shared/Header'
 import { NotificationContext } from '../../../shared/Notifications';
 
-import { Col, Media, Row } from 'react-bootstrap';
+import { Col, Container, Media, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -72,12 +72,14 @@ const DataFetching = () => {
             </Row>
 
             <Row>
+                <Container>
+
             <Col md={9}>
 
             {movies ? (
-                    movies.map((movie, i) => (
-                        //meke it a component. how to pass data?
-                        <Media key = {i}>
+                movies.map((movie, i) => (
+                    //meke it a component. how to pass data?
+                    <Media key = {i}>
 
                             <img
                                 src={movie.Poster !== 'N/A' ? movie.Poster :"https://via.placeholder.com/150"}
@@ -85,7 +87,7 @@ const DataFetching = () => {
                                 width={300}
                                 height={300}
                                 className="mr-3"
-                            />
+                                />
                             <Media.Body>
                                 <h5>{movie.title}</h5>
                                 <p>
@@ -104,10 +106,10 @@ const DataFetching = () => {
                             </Media.Body>
                         </Media>
                     ))
-          
-                
-
-            ) : null}
+                    
+                    
+                    
+                    ) : null}
             </Col>
                 <Col md ={3}>
                     <h1>here gos the list</h1>
@@ -119,6 +121,7 @@ const DataFetching = () => {
                 
   
 
+                    </Container>
             </Row>
         </>
 

@@ -7,8 +7,10 @@ const Header = ({title, children}) => {
   });
 
   return (
-    <Container className="my-3">
-      <Jumbotron>
+    <div className="">
+      <div className='bg-secondary vw-100 p-5 mb-3'>
+        <Container>
+
         <header>
           <h1>{title || 'Default header title if the title property is falsey'}</h1>
           {/* This is a comment in JSX */}
@@ -29,8 +31,9 @@ const Header = ({title, children}) => {
             </>
           ) : null }
         </header>
-      </Jumbotron>
-    </Container>
+          </Container>
+      </div>
+    </div>
   );
 }
  
