@@ -40,8 +40,8 @@ const MoviesCarousel = ({ moviesCarousel, moviesCarouselName }) => {
     // const onSlideChanged = ({ item }) => setActiveIndex(item);
 
     return (
-        <div className="mt-5">
-            <div className="m-3">
+        <div className="my-5">
+            <div className="mb-3">
 
                 <h2>{moviesCarouselName}</h2>
             </div>

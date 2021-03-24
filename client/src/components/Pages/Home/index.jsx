@@ -4,6 +4,7 @@ import Axios from 'axios'
 import Banner from './Banner';
 
 import MoviesCarousel from './MoviesCarousel';
+import { Container } from 'react-bootstrap';
 
 const Home = () => {
   // const tmdbKey = '16de3d175c4180739924271ad90578a1'
@@ -66,10 +67,13 @@ const Home = () => {
     <>
 
       <Banner title='Discover Movies and Where to watch Them' subTitle='' img='' />
+      <div className='ml-5'>
+
 
       <MoviesCarousel moviesCarousel={homeMovies} moviesCarouselName={'Popular'} />
       <MoviesCarousel moviesCarousel={topMovies} moviesCarouselName={'Top Movies'} />
       <MoviesCarousel moviesCarousel={trendingMovies} moviesCarouselName={'Trending Movies '} />
+      </div>
 
     </>
   );
