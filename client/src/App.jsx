@@ -7,17 +7,14 @@ import UserProvider from './components/Authentication/UserProvider';
 import NotificationProvider from './components/shared/Notifications';
 import GlobalStoreProvider from './components/shared/Globals';
 import Footer from './components/shared/Footer';
+import Layout from './components/shared/Layout';
 
 const App = () => {
   return (
     <GlobalStoreProvider>
         <UserProvider>
           <BrowserRouter>
-            <Navigation/>
-      <NotificationProvider>
-            <Routes/>
-            <Footer/>
-      </NotificationProvider>
+          <Layout/>
           </BrowserRouter>
         </UserProvider>
     </GlobalStoreProvider>

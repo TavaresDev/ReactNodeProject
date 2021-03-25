@@ -5,7 +5,7 @@ import { Container, Navbar } from 'react-bootstrap'
 const Footer = () => {
     return (
 
-        <Navbar bg="dark" variant="dark" >
+            <Navbar bg="dark" variant="dark" style={{height:'100%'}}>
 
             <Container className="text-center">
                 <div>
@@ -13,10 +13,10 @@ const Footer = () => {
                         <h4 className='text-secondary'> Developed by Andre Tavares </h4>
                     </a> 
                 </div>
-                <div>
-                    <p className=' h4 text-secondary'> Data from </p>
+                <div style={{ overflow:'hidden'}}>
+                    {/* <p className=' h4 text-secondary'> Data from </p> */}
                     <img style={{ width: '5rem' }} src="/images/tmdb.svg" alt="" />
-                    <p>"This product uses the TMDb API but is not endorsed or certified by TMDb."</p>
+                    <p >"This product uses the TMDb API but is not endorsed or certified by TMDb."</p>
                 </div>
 
             </Container>
