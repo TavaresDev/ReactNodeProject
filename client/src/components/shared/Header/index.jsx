@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 
-const Header = ({title, children}) => {
+const Header = ({ title, children }) => {
   useEffect(() => {
     document.title = title || 'Default tab title if the title property is falsey.';
   });
 
   return (
 
-      <div className='bg-secondary py-5 mb-3'>
-        <Container>
+    <div className='bg-secondary py-4 mb-3'>
+      <Container>
 
         <header>
           <h1>{title || 'Default header title if the title property is falsey'}</h1>
@@ -24,17 +24,17 @@ const Header = ({title, children}) => {
             When you access the props.children it will
             contain that content.
           */}
-          { children ? (
+          {children ? (
             <>
-              <hr/>
-              { children }
+              <hr />
+              {children}
             </>
-          ) : null }
+          ) : null}
         </header>
-          </Container>
-      </div>
+      </Container>
+    </div>
 
   );
 }
- 
+
 export default Header;

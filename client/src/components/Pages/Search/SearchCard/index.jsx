@@ -7,7 +7,7 @@ const SearchCard = ({ poster, title, year, id, overview }) => {
     return (
         <Styles.Wraper >
 
-            <Media className='p-3 my-3 shadow bg-light rounded'>
+            <Media className='p-3 my-3  '>
 
                 <img
                     src={poster}

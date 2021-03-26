@@ -12,7 +12,7 @@ import Loading from '../../../shared/Loading';
 const TMDataFetching = () => {
     const [movies, setMovies] = useState([])
     const [movieInput, setMovieInput] = useState('')
-    const [movieInputFromClick, setMovieInputFromClick] = useState('ass')
+    const [movieInputFromClick, setMovieInputFromClick] = useState('into the wild')
     const { setNotification } = useContext(NotificationContext);
 
 
@@ -70,7 +70,7 @@ const TMDataFetching = () => {
     return (
         <>
 
-            <Header title="Search your movies here">
+            <Header title="Find Movies">
                 <form>
                     <input value={movieInput} onChange={e => setMovieInput(e.target.value)} />
                     <button type="submit" onClick={handleClick} >Search</button>
@@ -78,7 +78,7 @@ const TMDataFetching = () => {
             </Header>
 
 
-            <Container>
+            <Container className='py-1'>
 
 
                 {movies ? (
