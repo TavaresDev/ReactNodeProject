@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import { Card} from 'react-bootstrap';
+
+
 
 
 // https://www.npmjs.com/package/react-alice-carousel
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css";
+import CarouselCard from '../CarouselCard';
 
 // const responsive = {
 // 	0: { items: 1 },
@@ -17,12 +18,9 @@ const MoviesCarousel = ({ moviesCarousel, moviesCarouselName }) => {
     const imagePath = 'https://image.tmdb.org/t/p/w500/'
 
     const items = moviesCarousel.map((movie) => (
-        <Link key={movie.id} to={`/movies/details/${movie.id}`} >
-        {/* <Card style={{ width: '5rem' }} className="bg-dark text-white"> */}
-            <Card.Img style={{ width: '14rem' }} src={imagePath + movie.poster_path} alt="Card image" />
 
-        {/* </Card> */}
-        </Link>
+        <CarouselCard key={movie.id} imgSrc={imagePath + movie.poster_path} movieid={movie.id} />
+
     ))
 
     // const numMovies = (moviesCarousel.length -4)
@@ -46,15 +44,15 @@ const MoviesCarousel = ({ moviesCarousel, moviesCarouselName }) => {
                 <h2>{moviesCarouselName}</h2>
             </div>
 
-            <AliceCarousel disableButtonsControls 
+            <AliceCarousel disableButtonsControls
                 mouseTracking
                 // infinite
                 // responsive={responsive}
                 // onSlideChanged={onSlideChanged}
                 // activeIndex={activeIndex}
-                autoWidth  
+                autoWidth
                 items={items} />
-                
+
             {/* <div className="b-refs-buttons">
                 <button onClick={slidePrev}>Prev</button>
                 <button onClick={slideNext}>Next</button>
