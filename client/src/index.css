@@ -1,7 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;900&family=Roboto:wght@100;400;700;900&display=swap');
+
+
 html,
 body{
     height:100%;
-    background-color: #F8F9FA;
+    /* background-color: #F8F9FA; */
+    /* background-color: #AEBBCD; */
+    /* background-color: #50010; */
+    background-color: #D5DCE5;
 }
 #root {
     

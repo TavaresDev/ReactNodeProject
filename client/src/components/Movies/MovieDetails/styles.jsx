@@ -7,16 +7,24 @@ export const DetailsWraper = styled.div`
             display:flex;
             align-items:center;
             justify-content:center;
-
+            
+            
             /* color:#fff */
         }
-        header > div {
-            background-color:rgba(200, 200, 200,0.8)
+
+        header > div > h1{
+            font-weight:700!important;
+            font-family: 'Roboto', sans-serif;
+            padding:0.4rem;
+            border-radius:10px;
+            background-color:rgba(150, 150, 160,0.8)
         }
         section {
+            color:#fff;
             /* background-color: #000; */
-            margin: 2rem 0;
-            height: 90vh;
+            padding: 2rem 0;
+            /* height: 90vh; */
+            background-color:rgba(15, 15, 20,0.92)
 
         }
 

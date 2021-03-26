@@ -36,6 +36,7 @@ const MovieDetails = () => {
         Axios.get(tmdbURL2)
             .then(res => {
                 // console.log(res)
+                console.log(res.data)
                 setMovieData(res.data)
 
 
@@ -102,17 +103,30 @@ const MovieDetails = () => {
         }
     };
 
+    console.log(movieData)
 
     return (
         movieData ? (
-            <S.DetailsWraper>
+            <S.DetailsWraper
+             style={{
+                backgroundImage: `url(${backdropImagePath + movieData.backdrop_path})`,
+                // backgroundPosition: 'center',
+                backgroundColor: ' #464646',
+                backgroundSize: 'cover',
+                // width: '100%',
+                minHeight: '16rem',
+            }}
+            >
+                <div>
+
+         
                 <header style={{
-                    backgroundImage: `url(${backdropImagePath + movieData.backdrop_path})`,
-                    // backgroundPosition: 'center',
-                    backgroundColor: ' #464646',
-                    backgroundSize: 'cover',
-                    // width: '100%',
-                    minHeight: '16rem',
+                    // backgroundImage: `url(${backdropImagePath + movieData.backdrop_path})`,
+                    // // backgroundPosition: 'center',
+                    // backgroundColor: ' #464646',
+                    // backgroundSize: 'cover',
+                    // // width: '100%',
+                    minHeight: '8rem',
                 }}>
                     <div>
                         <h1>{movieData.tagline}</h1>
@@ -124,9 +138,6 @@ const MovieDetails = () => {
 
                     </div>
                 </header>
-                {/* <Header title="Movie Complete details" /> */}
-                {/* header with video of movie */}
-
                 <section>
                     <Container>
                         <Row>
@@ -144,7 +155,7 @@ const MovieDetails = () => {
 
 
 
-                                <h1>{movieData.title} <span> ({movieData.release_date.slice(0, 4)})</span></h1>
+                                <h2>{movieData.title} <span> ({movieData.release_date.slice(0, 4)})</span></h2>
 
                                 <p>
                                     <strong>Genre:</strong>&nbsp;{movieData.genres.map((genre, index) => (
@@ -198,6 +209,7 @@ const MovieDetails = () => {
 
                     </Container>
                 </section>
+                </div>
             </S.DetailsWraper>
         ) : <Loading />
     )
