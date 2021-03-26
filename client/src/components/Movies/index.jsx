@@ -13,14 +13,14 @@ const Movies = () => {
 
   useEffect(() => {
     Axios.get(`${globalStore.REACT_APP_ENDPOINT}/movies`)
-    .then(({ data }) => setMovies(data))
-    .catch(error => {
-      console.error(error.message);
-      setNotification({
-        type: "danger",
-        message: "Couldn't access Movies at this time."
+      .then(({ data }) => setMovies(data))
+      .catch(error => {
+        console.error(error.message);
+        setNotification({
+          type: "danger",
+          message: "Couldn't access Movies at this time."
+        });
       });
-    });
   }, [globalStore, setNotification]);
 
   return (
@@ -42,15 +42,15 @@ const Movies = () => {
             </thead>
 
             <tbody>
-              {movies.map(({title, year, _id, imdb}, i) => (
+              {movies.map(({ title, year, _id, imdbID }, i) => (
                 <tr key={i}>
-                  
+
                   <td>   <Link to={`/movies/${_id}`} >{title} </Link></td>
                   <td>{year}</td>
-                  <td>{imdb}</td>
+                  <td>{imdbID}</td>
                   <td>{_id}</td>
-               
-                  
+
+
 
                 </tr>
               ))}
@@ -61,5 +61,5 @@ const Movies = () => {
     ) : null
   );
 }
- 
+
 export default Movies;

@@ -37,6 +37,8 @@ const MovieDetails = () => {
             .then(res => {
                 // console.log(res)
                 setMovieData(res.data)
+                console.log('user')
+                console.log(user)
 
                 //deal with providers
                 // console.log(res.data)
@@ -52,6 +54,7 @@ const MovieDetails = () => {
                     plot: String(res.data.overview),
                     poster: String(posterImagePath + res.data.poster_path),
                     rating: String(res.data.vote_average),
+       
                 })
                 // console.log(movieSchema)
                 // console.log(movieDataToApi)

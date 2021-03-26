@@ -29,7 +29,7 @@ const Navigation = () => {
       </Link>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-      <Navbar.Collapse id="basic-navbar-nav" className='pl-4' >
+      <Navbar.Collapse id="basic-navbar-nav" className='pl-1' >
         <Nav >
           {/* left nav */}
           {user && user.token ? (

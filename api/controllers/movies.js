@@ -10,6 +10,17 @@ exports.index = async (req, res, next) => {
     next(error);
   }
 };
+// exports.myMoviesIndex = async (req, res, next) => {
+//   try {
+//     const movies = await Movie.find(userEmail:
+
+//     );
+//     res.status(200).json(movies);
+//   } catch (error) {
+//     console.error(error);
+//     next(error);
+//   }
+// };
 
 exports.featured = async (req, res, next) => {
   try {
