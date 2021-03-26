@@ -37,8 +37,7 @@ const MovieDetails = () => {
             .then(res => {
                 // console.log(res)
                 setMovieData(res.data)
-                console.log('user')
-                console.log(user)
+
 
                 //deal with providers
                 // console.log(res.data)
