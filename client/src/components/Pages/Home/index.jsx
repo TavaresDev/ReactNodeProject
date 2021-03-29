@@ -68,7 +68,7 @@ const Home = () => {
   return (
     <>
 
-      <Banner title='Discover Movies and Where to watch Them' subTitle='' img='' />
+      <Banner title='Discover Movies' subTitle='' img='' />
       <Header>
 
       <SearchInput></SearchInput>
