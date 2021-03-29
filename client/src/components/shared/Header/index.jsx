@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 
 const Header = ({ title, children }) => {
   useEffect(() => {
-    document.title = title || 'Default tab title if the title property is falsey.';
+    document.title = title || 'Movie App';
   });
 
   return (
@@ -12,7 +12,7 @@ const Header = ({ title, children }) => {
       <Container>
 
         <header>
-          <h1>{title || 'Default header title if the title property is falsey'}</h1>
+          <h1>{title || ''}</h1>
           {/* This is a comment in JSX */}
           {/*
             Below is a ternary statement that is
@@ -26,7 +26,7 @@ const Header = ({ title, children }) => {
           */}
           {children ? (
             <>
-              <hr />
+              {/* <hr /> */}
               {children}
             </>
           ) : null}

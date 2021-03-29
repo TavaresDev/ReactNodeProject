@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
-
+import Header from '../../shared/Header'
 import Banner from './Banner';
+import SearchInput from '../../shared/SearchInput'
 
 import MoviesCarousel from './MoviesCarousel';
+
 
 
 const Home = () => {
@@ -67,6 +69,11 @@ const Home = () => {
     <>
 
       <Banner title='Discover Movies and Where to watch Them' subTitle='' img='' />
+      <Header>
+
+      <SearchInput></SearchInput>
+      </Header>
+      
       <div className='ml-5'>
 
 

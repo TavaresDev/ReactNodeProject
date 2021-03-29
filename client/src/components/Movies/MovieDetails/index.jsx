@@ -54,7 +54,7 @@ const MovieDetails = () => {
                     plot: String(res.data.overview),
                     poster: String(posterImagePath + res.data.poster_path),
                     rating: String(res.data.vote_average),
-       
+
                 })
                 // console.log(movieSchema)
                 // console.log(movieDataToApi)
@@ -108,33 +108,23 @@ const MovieDetails = () => {
     return (
         movieData ? (
             <S.DetailsWraper
-             style={{
-                backgroundImage: `url(${backdropImagePath + movieData.backdrop_path})`,
-                // backgroundPosition: 'center',
-                backgroundColor: ' #464646',
-                backgroundSize: 'cover',
-                // width: '100%',
-                minHeight: '16rem',
-            }}
-            >
-                <div>
-
-         
-                <header style={{
-                    // backgroundImage: `url(${backdropImagePath + movieData.backdrop_path})`,
+                style={{
+                    backgroundImage: `url(${backdropImagePath + movieData.backdrop_path})`,
                     // // backgroundPosition: 'center',
                     // backgroundColor: ' #464646',
                     // backgroundSize: 'cover',
                     // // width: '100%',
-                    minHeight: '8rem',
-                }}>
+                    // minHeight: '16rem',
+                }}
+            >
+
+
+
+                <header >
                     <div>
                         <h1>{movieData.tagline}</h1>
 
-
                         {/* <iframe title="movie video" width="560" height="315" src={`https://www.youtube.com/embed/${movieVideoKey}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-
-
 
                     </div>
                 </header>
@@ -209,7 +199,8 @@ const MovieDetails = () => {
 
                     </Container>
                 </section>
-                </div>
+                <footer/>
+
             </S.DetailsWraper>
         ) : <Loading />
     )

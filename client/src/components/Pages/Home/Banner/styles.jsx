@@ -7,7 +7,7 @@ export const Jumbotron = styled.div`
         background-color: #000;
         /* background-position: center center, center top; */
         /* background-repeat: repeat, no-repeat; */
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url("/images/cinemaB.jpg");
+        background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url("/images/cinemaB.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -19,10 +19,10 @@ export const Jumbotron = styled.div`
             h1{
                 text-align: center;
                 position: absolute;
-                top: 40%;
+                top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                color: white;
+                color: #E3E3E8;
             }
             h2{
                 text-align: center;

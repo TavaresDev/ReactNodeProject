@@ -2,6 +2,9 @@ import styled from "styled-components"
 
 export const Wraper = styled.div`
 	background: #e0e5eb;
+	/* gray 6 */
+	background: #CCD2DB;
+
 
 	/* 2dp */
 	box-shadow: 0px 1.27357px 2.54713px rgba(0, 0, 0, 0.14),

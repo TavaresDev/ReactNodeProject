@@ -3,6 +3,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import Header from '../../../shared/Header'
 import { NotificationContext } from '../../../shared/Notifications';
 
+import { useParams } from 'react-router-dom';
+
 import { Container } from 'react-bootstrap';
 
 import SearchCard from '../SearchCard';
@@ -10,9 +12,11 @@ import Loading from '../../../shared/Loading';
 
 
 const TMDataFetching = () => {
+
+    const { input } = useParams();
     const [movies, setMovies] = useState([])
     const [movieInput, setMovieInput] = useState('')
-    const [movieInputFromClick, setMovieInputFromClick] = useState('into the wild')
+    const [movieInputFromClick, setMovieInputFromClick] = useState(input)
     const { setNotification } = useContext(NotificationContext);
 
 
