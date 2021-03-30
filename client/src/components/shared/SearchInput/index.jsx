@@ -7,14 +7,7 @@ import { Button, InputGroup, FormControl } from 'react-bootstrap';
 const SearchInput = () => {
     const [movieInput, setMovieInput] = useState('')
 
-    const handleClick = (e) => {
-        e.preventDefault()
-        console.log(movieInput)
-        // setMovieInputFromClick(movieInput)
-        // movies.map((movie, i) => {
-        //   console.log(movie)
-        // })
-    }
+
     return (
 
 
